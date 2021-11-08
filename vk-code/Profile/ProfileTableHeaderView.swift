@@ -4,7 +4,6 @@ class ProfileHeaderView: UIView {
     
     override init(frame: CGRect) {
         
-//        self.user = parent.userService!.service(name: parent.name!)!
         super.init(frame: frame)
        
         setupSubviews()
@@ -97,14 +96,11 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let view = ProfileHeaderView()
+    let view = ProfileHeaderView()
     
     private func setupSubviews() {
         
-        let parent = self.next!.next as! ProfileViewController
-        view.fullNameLabel.text = parent.userService!.service(name: parent.name!)?.name
-        view.statusLabel.text = parent.userService!.service(name: parent.name!)?.status
-        view.avatarImageView.image = parent.userService!.service(name: parent.name!)?.ava
+    
         
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubviews(view)

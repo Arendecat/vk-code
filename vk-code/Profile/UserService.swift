@@ -27,3 +27,13 @@ class CurrentUserService: UserService {
     }
 }
 
+class TestUserService: UserService {
+    let currentUser = User(name: "Princess Anna", ava: UIImage.init(named: "ava2")!, status: "Some things never change")
+    func service(name: String) -> User? {
+        if (name == currentUser.name) {
+            return currentUser
+        } else {
+            return nil
+        }
+    }
+}

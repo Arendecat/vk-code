@@ -2,7 +2,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    init (service: CurrentUserService?, name: String?) {
+    init (service: UserService?, name: String?) {
         
         super.init(nibName: nil, bundle: nil)
         self.userService = service
@@ -28,12 +28,6 @@ class ProfileViewController: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
-            /*
-            let header = tableView.headerViewForSection(section: 0) as! ProfileHeaderView
-            header.fullNameLabel = userService!.service(name: name!).name
-            header.avatarImageView = userService!.service(name: name!).ava
-            header.statusLabel = userService!.service(name: name!).status
-            */
             
             view.addSubview(mainTable)
             NSLayoutConstraint.activate([
@@ -64,6 +58,10 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: ProfileTableHeaderView.self)) as! ProfileTableHeaderView
         if section != 0 {return nil}
+        
+        header.view.fullNameLabel.text = userService?.service(name: name!)?.name
+        header.view.statusLabel.text = userService?.service(name: name!)?.status
+        header.view.avatarImageView.image = userService?.service(name: name!)?.ava
         return header
     }
 
