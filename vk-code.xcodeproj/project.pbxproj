@@ -18,7 +18,6 @@
 		785D89EA27380C4900A6366D /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89E927380C4900A6366D /* ProfileTableViewCell.swift */; };
 		785D89EC27380C8800A6366D /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89EB27380C8800A6366D /* ProfileTableHeaderView.swift */; };
 		785D89EE27380CA100A6366D /* ProfilePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89ED27380CA100A6366D /* ProfilePost.swift */; };
-		785D89F02738777700A6366D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89EF2738777700A6366D /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 		785D89E927380C4900A6366D /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		785D89EB27380C8800A6366D /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		785D89ED27380CA100A6366D /* ProfilePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePost.swift; sourceTree = "<group>"; };
-		785D89EF2738777700A6366D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +89,6 @@
 				785D89EB27380C8800A6366D /* ProfileTableHeaderView.swift */,
 				785D89E927380C4900A6366D /* ProfileTableViewCell.swift */,
 				785D89ED27380CA100A6366D /* ProfilePost.swift */,
-				785D89EF2738777700A6366D /* UserService.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -185,7 +182,6 @@
 				785D89D1273531DA00A6366D /* FeedViewController.swift in Sources */,
 				785D89EC27380C8800A6366D /* ProfileTableHeaderView.swift in Sources */,
 				785D89EE27380CA100A6366D /* ProfilePost.swift in Sources */,
-				785D89F02738777700A6366D /* UserService.swift in Sources */,
 				785D89CD273531DA00A6366D /* AppDelegate.swift in Sources */,
 				785D89E32735415700A6366D /* LoginViewController.swift in Sources */,
 				785D89CF273531DA00A6366D /* SceneDelegate.swift in Sources */,

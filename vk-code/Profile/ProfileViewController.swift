@@ -2,19 +2,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    init (service: UserService?, name: String?) {
+
         
-        super.init(nibName: nil, bundle: nil)
-        self.userService = service
-        self.name = name
-    }
-        
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-        
-    var name: String? = nil
-    var userService: UserService? = nil
 
     private lazy var mainTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -58,10 +47,6 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: ProfileTableHeaderView.self)) as! ProfileTableHeaderView
         if section != 0 {return nil}
-        
-        header.view.fullNameLabel.text = userService?.service(name: name!)?.name
-        header.view.statusLabel.text = userService?.service(name: name!)?.status
-        header.view.avatarImageView.image = userService?.service(name: name!)?.ava
         return header
     }
 

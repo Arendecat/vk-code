@@ -15,7 +15,7 @@ class ProfileHeaderView: UIView {
     
     let fullNameLabel: UILabel = {
         let name = UILabel()
-//        name.text = "Queen Elsa"
+        name.text = "Queen Elsa"
         name.font = .boldSystemFont(ofSize: 18)
         name.textColor = .black
         name.translatesAutoresizingMaskIntoConstraints = false
@@ -23,11 +23,11 @@ class ProfileHeaderView: UIView {
     }()
     
     let avatarImageView: UIImageView = {
-//        let avaImage = UIImage.init(named: "ava")
+        let avaImage = UIImage.init(named: "ava")
         let ava = UIImageView()
         ava.backgroundColor = .cyan
         ava.layer.cornerRadius = 60
-//        ava.image = avaImage
+        ava.image = avaImage
         ava.layer.borderWidth = 3
         ava.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 255)
         ava.layer.masksToBounds = true
@@ -37,7 +37,7 @@ class ProfileHeaderView: UIView {
         
     let statusLabel: UILabel = {
         let status = UILabel()
-//        status.text = "Every day's a little harder"
+        status.text = "Every day's a little harder"
         status.font = .systemFont(ofSize: 14)
         status.textColor = .darkGray
         status.translatesAutoresizingMaskIntoConstraints = false

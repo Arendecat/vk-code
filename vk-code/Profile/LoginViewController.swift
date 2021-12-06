@@ -87,11 +87,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc func loginSuccessful() {
-        #if DEBUG
-        navigationController?.pushViewController(ProfileViewController(service: TestUserService(), name: loginString.text), animated: true)
-        #else
-        navigationController?.pushViewController(ProfileViewController(service: CurrentUserService(), name: loginString.text), animated: true)
-        #endif
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
     
