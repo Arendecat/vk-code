@@ -18,6 +18,7 @@
 		785D89EA27380C4900A6366D /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89E927380C4900A6366D /* ProfileTableViewCell.swift */; };
 		785D89EC27380C8800A6366D /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89EB27380C8800A6366D /* ProfileTableHeaderView.swift */; };
 		785D89EE27380CA100A6366D /* ProfilePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89ED27380CA100A6366D /* ProfilePost.swift */; };
+		78900BFE275E5BB400F07DBC /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78900BFD275E5BB400F07DBC /* Checker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		785D89E927380C4900A6366D /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		785D89EB27380C8800A6366D /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		785D89ED27380CA100A6366D /* ProfilePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePost.swift; sourceTree = "<group>"; };
+		78900BFD275E5BB400F07DBC /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				785D89E22735415700A6366D /* LoginViewController.swift */,
+				78900BFD275E5BB400F07DBC /* Checker.swift */,
 				785D89E72737FC6000A6366D /* ProfileViewController.swift */,
 				785D89EB27380C8800A6366D /* ProfileTableHeaderView.swift */,
 				785D89E927380C4900A6366D /* ProfileTableViewCell.swift */,
@@ -177,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				785D89E82737FC6000A6366D /* ProfileViewController.swift in Sources */,
+				78900BFE275E5BB400F07DBC /* Checker.swift in Sources */,
 				785D89EA27380C4900A6366D /* ProfileTableViewCell.swift in Sources */,
 				785D89E12735399700A6366D /* MainTabBar.swift in Sources */,
 				785D89D1273531DA00A6366D /* FeedViewController.swift in Sources */,

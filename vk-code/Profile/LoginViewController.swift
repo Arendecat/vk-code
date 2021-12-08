@@ -75,21 +75,28 @@ class LoginViewController: UIViewController {
 
     @objc fileprivate func keyboardWillShow(notification: NSNotification) {
           if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-              
             mainView.contentInset.bottom = keyboardSize.height
             mainView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
           }
     }
-
     @objc fileprivate func keyboardWillHide(notification: NSNotification) {
         mainView.contentInset.bottom = .zero
         mainView.verticalScrollIndicatorInsets = .zero
     }
     
+    
+    /*delegate pattern*/
     @objc func loginSuccessful() {
-        navigationController?.pushViewController(ProfileViewController(), animated: true)
+        if (delegate.check(login: loginString.text!, password: passwordString.text!)){
+            navigationController?.pushViewController(ProfileViewController(), animated: true)
+        }
     }
     
+   
+    
+    var delegate = AppDelegate().factory.createInspector()
+    
+    /*delegate pattern end*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
