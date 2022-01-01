@@ -87,21 +87,24 @@ class LoginViewController: UIViewController {
     
     /*delegate pattern*/
     @objc func loginSuccessful() {
-        if (delegate.check(login: loginString.text!, password: passwordString.text!)){
-            navigationController?.pushViewController(ProfileViewController(), animated: true)
+        if (LoginViewController.delegate != nil) {
+            if (LoginViewController.delegate!.check(login: loginString.text ?? "", password: passwordString.text ?? "")){
+                navigationController?.pushViewController(ProfileViewController(), animated: true)
+            }
+        } else {
+            print ("delegate is not set")
         }
     }
     
-   
-    
-    var delegate = AppDelegate().factory.createInspector()
+    static var delegate: LoginInspector? // должен ли это быть опционал? 
     
     /*delegate pattern end*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController!.navigationBar.isHidden = true
+        
+        navigationController!.navigationBar.isHidden = true//от этого force unwrap можно не избавляться?)
         
         
         view.addSubview(mainView)

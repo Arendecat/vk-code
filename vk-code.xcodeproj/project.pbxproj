@@ -19,6 +19,8 @@
 		785D89EC27380C8800A6366D /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89EB27380C8800A6366D /* ProfileTableHeaderView.swift */; };
 		785D89EE27380CA100A6366D /* ProfilePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89ED27380CA100A6366D /* ProfilePost.swift */; };
 		78900BFE275E5BB400F07DBC /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78900BFD275E5BB400F07DBC /* Checker.swift */; };
+		78A4CC062769047100625387 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 78A4CC052769047100625387 /* iOSIntPackage */; };
+		78A4CC08276A06A900625387 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A4CC07276A06A900625387 /* PhotosTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,7 @@
 		785D89EB27380C8800A6366D /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		785D89ED27380CA100A6366D /* ProfilePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePost.swift; sourceTree = "<group>"; };
 		78900BFD275E5BB400F07DBC /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		78A4CC07276A06A900625387 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78A4CC062769047100625387 /* iOSIntPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +95,7 @@
 				785D89E72737FC6000A6366D /* ProfileViewController.swift */,
 				785D89EB27380C8800A6366D /* ProfileTableHeaderView.swift */,
 				785D89E927380C4900A6366D /* ProfileTableViewCell.swift */,
+				78A4CC07276A06A900625387 /* PhotosTableViewCell.swift */,
 				785D89ED27380CA100A6366D /* ProfilePost.swift */,
 			);
 			path = Profile;
@@ -125,6 +130,9 @@
 			dependencies = (
 			);
 			name = "vk-code";
+			packageProductDependencies = (
+				78A4CC052769047100625387 /* iOSIntPackage */,
+			);
 			productName = "vk-code";
 			productReference = 785D89C9273531DA00A6366D /* vk-code.app */;
 			productType = "com.apple.product-type.application";
@@ -153,6 +161,9 @@
 				Base,
 			);
 			mainGroup = 785D89C0273531DA00A6366D;
+			packageReferences = (
+				78A4CC042769047100625387 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+			);
 			productRefGroup = 785D89CA273531DA00A6366D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -182,6 +193,7 @@
 				785D89E82737FC6000A6366D /* ProfileViewController.swift in Sources */,
 				78900BFE275E5BB400F07DBC /* Checker.swift in Sources */,
 				785D89EA27380C4900A6366D /* ProfileTableViewCell.swift in Sources */,
+				78A4CC08276A06A900625387 /* PhotosTableViewCell.swift in Sources */,
 				785D89E12735399700A6366D /* MainTabBar.swift in Sources */,
 				785D89D1273531DA00A6366D /* FeedViewController.swift in Sources */,
 				785D89EC27380C8800A6366D /* ProfileTableHeaderView.swift in Sources */,
@@ -398,6 +410,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		78A4CC042769047100625387 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TrueMax/iOSIntPackage";
+			requirement = {
+				branch = imagepublisher;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		78A4CC052769047100625387 /* iOSIntPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78A4CC042769047100625387 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
+			productName = iOSIntPackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 785D89C1273531DA00A6366D /* Project object */;
 }
