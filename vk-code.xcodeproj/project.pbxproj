@@ -19,6 +19,7 @@
 		785D89EC27380C8800A6366D /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89EB27380C8800A6366D /* ProfileTableHeaderView.swift */; };
 		785D89EE27380CA100A6366D /* ProfilePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89ED27380CA100A6366D /* ProfilePost.swift */; };
 		78900BFE275E5BB400F07DBC /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78900BFD275E5BB400F07DBC /* Checker.swift */; };
+		789A0F3B278745A8000FDDE9 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A0F3A278745A8000FDDE9 /* PhotosViewController.swift */; };
 		78A4CC062769047100625387 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 78A4CC052769047100625387 /* iOSIntPackage */; };
 		78A4CC08276A06A900625387 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A4CC07276A06A900625387 /* PhotosTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		785D89EB27380C8800A6366D /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		785D89ED27380CA100A6366D /* ProfilePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePost.swift; sourceTree = "<group>"; };
 		78900BFD275E5BB400F07DBC /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		789A0F3A278745A8000FDDE9 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		78A4CC07276A06A900625387 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +99,7 @@
 				785D89E927380C4900A6366D /* ProfileTableViewCell.swift */,
 				78A4CC07276A06A900625387 /* PhotosTableViewCell.swift */,
 				785D89ED27380CA100A6366D /* ProfilePost.swift */,
+				789A0F3A278745A8000FDDE9 /* PhotosViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				785D89EC27380C8800A6366D /* ProfileTableHeaderView.swift in Sources */,
 				785D89EE27380CA100A6366D /* ProfilePost.swift in Sources */,
 				785D89CD273531DA00A6366D /* AppDelegate.swift in Sources */,
+				789A0F3B278745A8000FDDE9 /* PhotosViewController.swift in Sources */,
 				785D89E32735415700A6366D /* LoginViewController.swift in Sources */,
 				785D89CF273531DA00A6366D /* SceneDelegate.swift in Sources */,
 			);

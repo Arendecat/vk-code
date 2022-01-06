@@ -104,7 +104,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         
-        navigationController!.navigationBar.isHidden = true//от этого force unwrap можно не избавляться?)
+        navigationController!.navigationBar.isHidden = true
         
         
         view.addSubview(mainView)

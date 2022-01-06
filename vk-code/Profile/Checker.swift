@@ -2,8 +2,8 @@ import Foundation
 import UIKit
 
 class Checker {
-    private let trueLogin = "login"
-    private let truePassword = "password"
+    private let trueLogin = "1"
+    private let truePassword = "1"
     static let instance = Checker()
     func check(loginAttempt: String, passwordAttempt: String) -> Bool {
         if ((loginAttempt == trueLogin)&&(passwordAttempt == truePassword)) {
