@@ -40,7 +40,7 @@ class PhotosViewController: UIViewController {
         super.viewWillDisappear(animated)
         facade.removeSubscription(for: self)
     }
-    let facade = ImagePublisherFacade()
+    private let facade = ImagePublisherFacade()
     
     
 }
@@ -89,7 +89,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    func viewSetup() {
+    private func viewSetup() {
         contentView.addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
