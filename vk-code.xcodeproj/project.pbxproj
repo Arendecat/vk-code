@@ -20,6 +20,7 @@
 		785D89EE27380CA100A6366D /* ProfilePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89ED27380CA100A6366D /* ProfilePost.swift */; };
 		78900BFE275E5BB400F07DBC /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78900BFD275E5BB400F07DBC /* Checker.swift */; };
 		789A0F3B278745A8000FDDE9 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A0F3A278745A8000FDDE9 /* PhotosViewController.swift */; };
+		789A0F3D278C7AD3000FDDE9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A0F3C278C7AD3000FDDE9 /* CustomButton.swift */; };
 		78A4CC062769047100625387 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 78A4CC052769047100625387 /* iOSIntPackage */; };
 		78A4CC08276A06A900625387 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A4CC07276A06A900625387 /* PhotosTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		785D89ED27380CA100A6366D /* ProfilePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePost.swift; sourceTree = "<group>"; };
 		78900BFD275E5BB400F07DBC /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		789A0F3A278745A8000FDDE9 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		789A0F3C278C7AD3000FDDE9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		78A4CC07276A06A900625387 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +115,7 @@
 				785D89CE273531DA00A6366D /* SceneDelegate.swift */,
 				785D89D5273531DD00A6366D /* Assets.xcassets */,
 				785D89DA273531DD00A6366D /* Info.plist */,
+				789A0F3C278C7AD3000FDDE9 /* CustomButton.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789A0F3D278C7AD3000FDDE9 /* CustomButton.swift in Sources */,
 				785D89E82737FC6000A6366D /* ProfileViewController.swift in Sources */,
 				78900BFE275E5BB400F07DBC /* Checker.swift in Sources */,
 				785D89EA27380C4900A6366D /* ProfileTableViewCell.swift in Sources */,

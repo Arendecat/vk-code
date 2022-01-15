@@ -60,6 +60,24 @@ class LoginViewController: UIViewController {
         pString.translatesAutoresizingMaskIntoConstraints = false
         return pString
     }()
+    
+    private lazy var bruteForceButton: UIButton = {
+        let bff = UIButton()
+        bff.translatesAutoresizingMaskIntoConstraints = false
+        bff.backgroundColor = .purple
+        bff.setTitle("Подобрать пароль", for: .normal)
+        bff.layer.cornerRadius = 10
+        bff.layer.masksToBounds = true
+        bff.addTarget(self, action: #selector(forcePassword), for: .touchUpInside)
+        return bff
+    }()
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let acIn = UIActivityIndicatorView()
+        acIn.translatesAutoresizingMaskIntoConstraints = false
+        acIn.isHidden = true
+        return acIn
+    }()
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -84,7 +102,7 @@ class LoginViewController: UIViewController {
         mainView.verticalScrollIndicatorInsets = .zero
     }
     
-    
+    /*
     /*delegate pattern*/
     @objc func loginSuccessful() {
         if (LoginViewController.delegate != nil) {
@@ -99,6 +117,50 @@ class LoginViewController: UIViewController {
     static weak var delegate: LoginInspector? // должен ли это быть опционал? 
     
     /*delegate pattern end*/
+    */
+    
+    func bfDone(guessedPassword: String?){
+        if (guessedPassword != nil) {
+            self.passwordString.text = guessedPassword!
+            self.passwordString.isSecureTextEntry = false
+        } else {
+            print("не удалось подобрать пароль")
+        }
+        self.activityIndicator.isHidden = true
+    }
+    
+    private var password = ""
+    @objc func forcePassword() {
+        
+        print("triggered")
+        let forceClass = BruteForce()
+        var length: Int? //= 5  //задайте длину пароля
+        length = length ?? Int.random(in: 1...8)// или выберите случайную 
+        let letters = forceClass.symbols //доступные символы для пароля задаются в классе брутфорса
+        password = String((0..<length!).map{ _ in letters.randomElement()! })
+        
+        print(password)
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        var guessedPassword: String? = nil
+        let queueForBF = DispatchQueue(label: "BFQueue", qos: .utility)
+        let group = DispatchGroup()
+        group.enter()
+        queueForBF.async {
+            guessedPassword = forceClass.cycle(attempt: "", passwordToBust: self.password)
+            group.leave()
+        }
+        // после подбора
+        group.notify(queue: .main) {
+            self.bfDone(guessedPassword: guessedPassword)
+        }
+        //
+        
+    }
+    
+    @objc func loginSuccessful() {
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,6 +185,8 @@ class LoginViewController: UIViewController {
         supView.addSubview(loginString)
         supView.addSubview(passwordString)
         supView.addSubview(loginDivideLine)
+        supView.addSubview(bruteForceButton)
+        supView.addSubview(activityIndicator)
         supView.translatesAutoresizingMaskIntoConstraints = false
         
     
@@ -163,13 +227,44 @@ class LoginViewController: UIViewController {
             loginDivideLine.heightAnchor.constraint(equalToConstant: 0.5),
             loginDivideLine.centerYAnchor.constraint(equalTo: loginBar.centerYAnchor),
             
+            bruteForceButton.leftAnchor.constraint(equalTo: supView.leftAnchor, constant: 16),
+            bruteForceButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 16),
+            bruteForceButton.heightAnchor.constraint(equalToConstant: 50),
+            bruteForceButton.widthAnchor.constraint(equalToConstant: 200),
+            
+            activityIndicator.leftAnchor.constraint(equalTo: bruteForceButton.rightAnchor, constant: 16),
+            activityIndicator.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 16),
+            activityIndicator.widthAnchor.constraint(equalToConstant: 50),
+            activityIndicator.heightAnchor.constraint(equalToConstant: 50),
+            
             loginButton.topAnchor.constraint(equalTo: loginBar.bottomAnchor, constant: 16),
             loginButton.leadingAnchor.constraint(equalTo: supView.leadingAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: supView.trailingAnchor, constant: -16),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
-            supView.bottomAnchor.constraint(equalTo: loginButton.bottomAnchor)
+            supView.bottomAnchor.constraint(equalTo: bruteForceButton.bottomAnchor)
             
         ])
 
+    }
+}
+
+class BruteForce {
+
+    let symbols: String = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXWZ" // символы, которые может содержать пароль
+    var password: String? = nil
+    
+    func cycle(attempt: String, passwordToBust: String) -> String? {
+        for char in symbols {
+            let attempt1: String = attempt + String(char)
+//            print(attempt1)
+            if (attempt1 == passwordToBust) {
+                print("success")
+                password = attempt1
+            }
+            if (attempt1.count < passwordToBust.count) {
+                cycle(attempt: attempt1, passwordToBust: passwordToBust)
+            } else {}
+        }
+        return password
     }
 }
