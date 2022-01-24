@@ -35,6 +35,11 @@ class ProfileViewController: UIViewController {
             mainTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+    }
 }
 
 extension ProfileViewController: UITableViewDataSource {

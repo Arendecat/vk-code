@@ -68,14 +68,24 @@ class ProfileHeaderView: UIView {
     }()
     
     @objc func clock(timer: Timer){
-        let enteringTime: Date = timer.userInfo as! Date
+        var enteringTime = Date()
+        if (timer.userInfo as? Date != nil){
+            enteringTime = timer.userInfo as! Date
+        } else {print("Ошибка при получении времени входа")}
         let passedTime: TimeInterval = Date().timeIntervalSince(enteringTime)
         let df = DateComponentsFormatter()
         df.unitsStyle = .abbreviated
         df.allowedUnits = [.hour, .minute, .second]
-//        print(df.string(from: passedTime)!)
-        spentTimeLabel.text = "Время, проведенное на странице: " + df.string(from: passedTime)!
+        let timeString: String? = df.string(from: passedTime)
+        if (timeString != nil) {
+            spentTimeLabel.text = "Время, проведенное на странице: " + timeString!
+        } else {
+            print("Неверные данные времени, проведенного на странице")
+            
+        }
     }
+    
+    let timer = Timer(timeInterval: 1.0, target: self, selector: #selector(clock), userInfo: Date(), repeats: true)
     
     private func setupSubviews() {
         self.addSubviews(fullNameLabel,avatarImageView,statusLabel,statusButton,spentTimeLabel)
