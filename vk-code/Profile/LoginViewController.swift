@@ -2,10 +2,10 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    let mainView = UIScrollView()
-    let supView = UIView()
+    private lazy var mainView = UIScrollView()
+    private lazy var supView = UIView()
 
-    let logoView: UIImageView = {
+    private lazy var logoView: UIImageView = {
         let logoImage = UIImage.init(named: "logo")
         let logo = UIImageView()
         logo.backgroundColor = .red
@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
         return logo
     }()
     
-    let loginBar: UIView = {
+    private lazy var loginBar: UIView = {
         let lBar = UIView()
         lBar.backgroundColor = .systemGray6
         lBar.layer.cornerRadius = 10
@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
         return lBar
     }()
     
-    var loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let loginButton = UIButton()
         let bluePixel = UIImage.init(named: "blue_pixel")
         loginButton.setBackgroundImage(bluePixel, for: .normal)
@@ -39,21 +39,21 @@ class LoginViewController: UIViewController {
         return loginButton
     }()
     
-    let loginDivideLine: UIView = {
+    private lazy var loginDivideLine: UIView = {
         let ldl = UIView()
         ldl.backgroundColor = .lightGray
         ldl.translatesAutoresizingMaskIntoConstraints = false
         return ldl
     }()
     
-    let loginString: UITextField = {
+    private lazy var loginString: UITextField = {
         let lString = UITextField()
         lString.placeholder = "Email or phone"
         lString.translatesAutoresizingMaskIntoConstraints = false
         return lString
     }()
     
-    let passwordString: UITextField = {
+    private lazy var passwordString: UITextField = {
         let pString = UITextField()
         pString.placeholder = "Password"
         pString.isSecureTextEntry = true
@@ -96,7 +96,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    static var delegate: LoginInspector? // должен ли это быть опционал? 
+    static weak var delegate: LoginInspector? // должен ли это быть опционал? 
     
     /*delegate pattern end*/
     

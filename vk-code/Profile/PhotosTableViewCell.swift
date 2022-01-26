@@ -10,7 +10,7 @@ class PhotosTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let image1: UIImageView = {
+    private lazy var image1: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "cat1")
@@ -18,7 +18,7 @@ class PhotosTableViewCell: UITableViewCell {
         image.clipsToBounds = true
         return image
     }()
-    let image2: UIImageView = {
+    private lazy var image2: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "cat2")
@@ -26,7 +26,7 @@ class PhotosTableViewCell: UITableViewCell {
         image.clipsToBounds = true
         return image
     }()
-    let image3: UIImageView = {
+    private lazy var image3: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "cat3")
@@ -34,7 +34,7 @@ class PhotosTableViewCell: UITableViewCell {
         image.clipsToBounds = true
         return image
     }()
-    let image4: UIImageView = {
+    private lazy var image4: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "cat4")
@@ -43,7 +43,7 @@ class PhotosTableViewCell: UITableViewCell {
         return image
     }()
     
-    let photosLabel: UILabel = {
+    private lazy var photosLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Photos"
@@ -51,14 +51,14 @@ class PhotosTableViewCell: UITableViewCell {
         return label
     }()
     
-    let arrowImage: UIImageView = {
+    private lazy var arrowImage: UIImageView = {
         let arrow = UIImageView()
         arrow.image = UIImage(systemName: "chevron.right")
         arrow.translatesAutoresizingMaskIntoConstraints = false
         return arrow
     }()
     
-    func viewSetup(){
+    private func viewSetup(){
         contentView.addSubviews(image1, image2, image3, image4, photosLabel, arrowImage)
         NSLayoutConstraint.activate([
             photosLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
@@ -93,7 +93,6 @@ class PhotosTableViewCell: UITableViewCell {
             image4.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
         ])
     }
-    
 }
 
 

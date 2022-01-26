@@ -13,7 +13,7 @@ class ProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let fullNameLabel: UILabel = {
+    private lazy var fullNameLabel: UILabel = {
         let name = UILabel()
         name.text = "Queen Elsa"
         name.font = .boldSystemFont(ofSize: 18)
@@ -22,7 +22,7 @@ class ProfileHeaderView: UIView {
         return name
     }()
     
-    let avatarImageView: UIImageView = {
+    private lazy var avatarImageView: UIImageView = {
         let avaImage = UIImage.init(named: "ava")
         let ava = UIImageView()
         ava.backgroundColor = .cyan
@@ -35,7 +35,7 @@ class ProfileHeaderView: UIView {
         return ava
     }()
         
-    let statusLabel: UILabel = {
+    private lazy var statusLabel: UILabel = {
         let status = UILabel()
         status.text = "Every day's a little harder"
         status.font = .systemFont(ofSize: 14)
@@ -44,7 +44,7 @@ class ProfileHeaderView: UIView {
         return status
     }()
     
-    let statusButton: UIButton = {
+    private lazy var statusButton: UIButton = {
         let statusB = UIButton()
         statusB.backgroundColor = .blue
         statusB.layer.cornerRadius = 4
@@ -96,7 +96,7 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let view = ProfileHeaderView()
+    private lazy var view = ProfileHeaderView()
     
     private func setupSubviews() {
         

@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
@@ -30,7 +31,18 @@ class PhotosViewController: UIViewController {
             collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+        facade.subscribe(self)
+        facade.addImagesWithTimer(time: 2, repeat: 15, userImages: nil)
+        collectionView.reloadData()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        facade.removeSubscription(for: self)
+    }
+    private let facade = ImagePublisherFacade()
+    
+    
 }
 
 extension PhotosViewController: UICollectionViewDelegate {
@@ -77,7 +89,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    func viewSetup() {
+    private func viewSetup() {
         contentView.addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -87,3 +99,11 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         ])
     }
 }
+
+extension PhotosViewController: ImageLibrarySubscriber {
+    func receive(images: [UIImage]) {
+        
+    }
+    
+}
+

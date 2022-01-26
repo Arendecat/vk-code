@@ -21,7 +21,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     
-    let postAuthor: UILabel = {
+    private lazy var postAuthor: UILabel = {
         let author = UILabel()
         author.font = .boldSystemFont(ofSize: 20)
         author.textColor = .black
@@ -30,7 +30,7 @@ class PostTableViewCell: UITableViewCell {
         return author
     }()
     
-    let postImage: UIImageView = {
+    private lazy var postImage: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .black
         image.contentMode = .scaleAspectFit
@@ -38,7 +38,7 @@ class PostTableViewCell: UITableViewCell {
         return image
     }()
     
-    let postDescription: UILabel = {
+    private lazy var postDescription: UILabel = {
         let description = UILabel()
         description.font = .systemFont(ofSize: 14)
         description.textColor = .systemGray
@@ -47,7 +47,7 @@ class PostTableViewCell: UITableViewCell {
         return description
     }()
     
-    let postLikesCounter: UILabel = {
+    private lazy var postLikesCounter: UILabel = {
         let likes = UILabel()
         likes.font = .systemFont(ofSize: 16)
         likes.textColor = .black
@@ -56,7 +56,7 @@ class PostTableViewCell: UITableViewCell {
         return likes
     }()
     
-    let postViewsCounter: UILabel = {
+    private lazy var postViewsCounter: UILabel = {
         let views = UILabel()
         views.font = .systemFont(ofSize: 16)
         views.textColor = .black
