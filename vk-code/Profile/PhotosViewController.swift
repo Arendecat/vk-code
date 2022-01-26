@@ -22,6 +22,9 @@ class PhotosViewController: UIViewController {
         self.navigationController?.title = "Photo Gallery"
         self.navigationController?.navigationBar.prefersLargeTitles = false
         
+        for index in 1...10 {
+            imagesArray.append(UIImage(named: "cat" + String(index)) ?? UIImage(named: "blue_pixel")!)
+        }
         
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,9 +35,11 @@ class PhotosViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         facade.subscribe(self)
-        facade.addImagesWithTimer(time: 2, repeat: 15, userImages: nil)
+        facade.addImagesWithTimer(time: 2, repeat: 20, userImages: nil)
         collectionView.reloadData()
     }
+    
+    var imagesArray: [UIImage] = []
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -49,16 +54,26 @@ extension PhotosViewController: UICollectionViewDelegate {
     
 }
 
-extension PhotosViewController: UICollectionViewDataSource {
+extension PhotosViewController: UICollectionViewDataSource, ImageLibrarySubscriber {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return imagesArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotosCollectionViewCell.self), for: indexPath) as! PhotosCollectionViewCell
-        cell.imageView.image = UIImage(named: "cat" + String(indexPath.item + 1)) ?? UIImage(named: "blue_pixel")!
+        cell.imageView.image = imagesArray[indexPath.item]
         return cell
     }
+    
+    func receive(images: [UIImage]) {
+        if (imagesArray.count >= images.count) {
+            imagesArray[images.count - 1] = images[images.count - 1]
+        } else {
+            imagesArray.append(images[images.count - 1])
+        }
+        collectionView.reloadData()
+    }
+    
 }
 
 extension PhotosViewController: UICollectionViewDelegateFlowLayout {
@@ -100,10 +115,5 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension PhotosViewController: ImageLibrarySubscriber {
-    func receive(images: [UIImage]) {
-        
-    }
-    
-}
+
 
