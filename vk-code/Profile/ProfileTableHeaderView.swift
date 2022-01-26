@@ -85,7 +85,7 @@ class ProfileHeaderView: UIView {
         }
     }
     
-    let timer = Timer(timeInterval: 1.0, target: self, selector: #selector(clock), userInfo: Date(), repeats: true)
+    var timer = Timer(timeInterval: 1.0, target: self, selector: #selector(clock), userInfo: Date(), repeats: true)
     
     private func setupSubviews() {
         self.addSubviews(fullNameLabel,avatarImageView,statusLabel,statusButton,spentTimeLabel)
@@ -117,8 +117,8 @@ class ProfileHeaderView: UIView {
             spentTimeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
         ])
         
-        let timer = Timer(timeInterval: 1.0, target: self, selector: #selector(clock), userInfo: Date(), repeats: true)
-        
+        timer = Timer(timeInterval: 1.0, target: self, selector: #selector(clock), userInfo: Date(), repeats: true)
+        print("kjdsfl;ksdjflksj\n\n\nn\n\n\njhgkjhgk",timer)
         RunLoop.current.add(timer, forMode: .common)
         
     }
@@ -135,7 +135,7 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var view = ProfileHeaderView()
+    let view = ProfileHeaderView()
     
     private func setupSubviews() {
         

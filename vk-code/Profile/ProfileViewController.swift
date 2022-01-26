@@ -36,9 +36,16 @@ class ProfileViewController: UIViewController {
         ])
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    private var timerOutlet: Timer?
+    
+    
+    
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-
+        if (timerOutlet != nil) {
+            timerOutlet!.invalidate()
+        }
+        
     }
 }
 
@@ -66,6 +73,8 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: ProfileTableHeaderView.self)) as! ProfileTableHeaderView
         if section != 0 {return nil}
+        timerOutlet = header.view.timer
+        
         return header
     }
 
