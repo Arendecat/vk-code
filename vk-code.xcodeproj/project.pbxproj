@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		783A574727AACC3A007512B8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A574627AACC3A007512B8 /* InfoViewController.swift */; };
 		785D89CD273531DA00A6366D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89CC273531DA00A6366D /* AppDelegate.swift */; };
 		785D89CF273531DA00A6366D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89CE273531DA00A6366D /* SceneDelegate.swift */; };
 		785D89D1273531DA00A6366D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89D0273531DA00A6366D /* FeedViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		783A574627AACC3A007512B8 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		785D89C9273531DA00A6366D /* vk-code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "vk-code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		785D89CC273531DA00A6366D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		785D89CE273531DA00A6366D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		783A574527AACC15007512B8 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				783A574627AACC3A007512B8 /* InfoViewController.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
 		785D89C0273531DA00A6366D = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 				785D89E62735417F00A6366D /* App */,
 				785D89E52735417200A6366D /* Profile */,
 				785D89E42735416200A6366D /* Feed */,
+				783A574527AACC15007512B8 /* Info */,
 			);
 			path = "vk-code";
 			sourceTree = "<group>";
@@ -202,6 +213,7 @@
 				785D89EC27380C8800A6366D /* ProfileTableHeaderView.swift in Sources */,
 				785D89EE27380CA100A6366D /* ProfilePost.swift in Sources */,
 				785D89CD273531DA00A6366D /* AppDelegate.swift in Sources */,
+				783A574727AACC3A007512B8 /* InfoViewController.swift in Sources */,
 				789A0F3B278745A8000FDDE9 /* PhotosViewController.swift in Sources */,
 				785D89E32735415700A6366D /* LoginViewController.swift in Sources */,
 				785D89CF273531DA00A6366D /* SceneDelegate.swift in Sources */,
