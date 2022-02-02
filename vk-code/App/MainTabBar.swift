@@ -9,8 +9,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
 
     func controllerSetup(){
         viewControllers = [
-            createNavController(for: LoginViewController(), title: "Feed", image: UIImage(systemName: "rectangle.grid.1x2.fill")!),
-            createNavController(for: FeedViewController(), title: "Profile", image: UIImage(systemName: "info.circle.fill")!)
+            createNavController(for: LoginViewController(), title: "Feed", image: UIImage(systemName: "doc.plaintext")!),
+            createNavController(for: FeedViewController(), title: "Profile", image: UIImage(systemName: "person.fill")!),
+            createNavController(for: InfoViewController(), title: "Info", image: UIImage(systemName: "info.circle.fill")!)
         ]
     }
 
