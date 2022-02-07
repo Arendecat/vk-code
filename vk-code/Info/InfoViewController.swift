@@ -9,12 +9,14 @@ class InfoViewController: UIViewController {
     private lazy var taskTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "название задачи"
         return label
     }()
     
     private lazy var planetPeriodLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "планета и период"
         return label
     }()
     
@@ -50,9 +52,12 @@ class InfoViewController: UIViewController {
             } catch {print(error)}
         }
         task.resume()
-        sleep(5)//ПЕРЕДЕЛАТЬ С ПОТОКАМИ
+        sleep(3)
+
         return fetchedModels
     }
+    
+    
     
     func call2() -> PlanetModel? {
         let decoder = JSONDecoder()
@@ -67,18 +72,26 @@ class InfoViewController: UIViewController {
                 try fetchedModels = decoder.decode(PlanetModel.self, from: data!)
             } catch {print(error)}
         }
-        task.resume()
-        sleep(5)//ПЕРЕДЕЛАТЬ С ПОТОКАМИ
+            task.resume()
+        sleep(3)
+
+        
         return fetchedModels
     }
+    
+    var taskText: String = ""
+    var planetText: String = ""
+    let group = DispatchGroup()
+    let netQueue = DispatchQueue(label: "net", qos: .utility)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        taskTitle.text = call1()![0].title
-        planetPeriodLabel.text = call2()!.planet
+        netQueue.sync {
+            self.taskTitle.text = self.call1()![0].title
+            self.planetText = "Планета " + self.call2()!.planet + "имеет период обращения " + self.call2()!.orbitalPeriod
+        }
+
         view.addSubview(taskTitle)
         view.addSubview(planetPeriodLabel)
         NSLayoutConstraint.activate([
@@ -94,3 +107,15 @@ class InfoViewController: UIViewController {
     
 }
 
+/*
+group.enter()
+queueForPlanet.async {
+    self.taskText = self.call1()![0].title
+    self.planetText = "Планета " + self.call2()!.planet + "имеет период обращения " + self.call2()!.orbitalPeriod
+    self.group.leave()
+}
+
+group.notify(queue: .main) {
+    
+}
+*/
