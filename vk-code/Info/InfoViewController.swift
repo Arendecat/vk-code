@@ -5,6 +5,14 @@ class InfoViewController: UIViewController {
     let url1 = URL(string: "https://jsonplaceholder.typicode.com/todos/")!
     let url2 = URL(string: "https://swapi.dev/api/planets/1")!
     
+    private lazy var downloadButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Download data", for: .normal)
+        button.backgroundColor = .systemBlue
+        button.addTarget(self, action: #selector(download), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     private lazy var taskTitle: UILabel = {
         let label = UILabel()
@@ -17,6 +25,7 @@ class InfoViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "планета и период"
+        label.numberOfLines = 0
         return label
     }()
     
@@ -38,7 +47,9 @@ class InfoViewController: UIViewController {
     }
     
     
-    func call1() -> [ToDoModel]? {
+    func call1() {
+        let group1 = DispatchGroup()
+        let queue1 = DispatchQueue(label: "call1", qos: .utility)
         let decoder = JSONDecoder()
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 10
@@ -50,16 +61,24 @@ class InfoViewController: UIViewController {
             do {
                 try fetchedModels = decoder.decode([ToDoModel].self, from: data!)
             } catch {print(error)}
+            group1.leave()
+        }
+        group1.enter()
+        queue1.async {
+            task.resume()
         }
         task.resume()
-        sleep(3)
-
-        return fetchedModels
+        group1.notify(queue: .main) {
+            if (fetchedModels != nil) {
+                self.taskTitle.text = fetchedModels![0].title
+            } else { print("unable to download data") }
+        }
+        return
     }
     
-    
-    
-    func call2() -> PlanetModel? {
+    func call2() {
+        let group2 = DispatchGroup()
+        let queue2 = DispatchQueue(label: "call2", qos: .utility)
         let decoder = JSONDecoder()
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 10
@@ -71,51 +90,42 @@ class InfoViewController: UIViewController {
             do {
                 try fetchedModels = decoder.decode(PlanetModel.self, from: data!)
             } catch {print(error)}
+            group2.leave()
         }
+        group2.enter()
+        queue2.async {
             task.resume()
-        sleep(3)
-
-        
-        return fetchedModels
+        }
+        group2.notify(queue: .main) {
+            if (fetchedModels != nil) {
+                self.planetPeriodLabel.text = "Планета " + fetchedModels!.planet + " имеет период обращения " + fetchedModels!.orbitalPeriod
+            } else { print("unable to download data") }
+        }
+        return
     }
     
-    var taskText: String = ""
-    var planetText: String = ""
-    let group = DispatchGroup()
-    let netQueue = DispatchQueue(label: "net", qos: .utility)
+    @objc func download(){
+        call1()
+        call2()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        netQueue.sync {
-            self.taskTitle.text = self.call1()![0].title
-            self.planetText = "Планета " + self.call2()!.planet + "имеет период обращения " + self.call2()!.orbitalPeriod
-        }
 
         view.addSubview(taskTitle)
         view.addSubview(planetPeriodLabel)
+        view.addSubview(downloadButton)
         NSLayoutConstraint.activate([
-            taskTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            downloadButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            downloadButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20),
+            downloadButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20),
+            downloadButton.heightAnchor.constraint(equalToConstant: 50),
+            taskTitle.topAnchor.constraint(equalTo: downloadButton.bottomAnchor, constant: 20),
             taskTitle.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20),
-            taskTitle.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 20),
+            taskTitle.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20),
             planetPeriodLabel.topAnchor.constraint(equalTo: taskTitle.bottomAnchor, constant: 20),
             planetPeriodLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20),
-            planetPeriodLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 20),
-
+            planetPeriodLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20),
         ])
     }
-    
 }
-
-/*
-group.enter()
-queueForPlanet.async {
-    self.taskText = self.call1()![0].title
-    self.planetText = "Планета " + self.call2()!.planet + "имеет период обращения " + self.call2()!.orbitalPeriod
-    self.group.leave()
-}
-
-group.notify(queue: .main) {
-    
-}
-*/
