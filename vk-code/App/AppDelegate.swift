@@ -12,6 +12,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        
+        NetworkService.urlSessionInit(url: URL(string: AppConfuguration.url1.rawValue)!)
+        NetworkService.urlSessionInit(url: URL(string: AppConfuguration.url2.rawValue)!)
+        NetworkService.urlSessionInit(url: URL(string: AppConfuguration.url3.rawValue)!)
+        
         return true
     }
 
