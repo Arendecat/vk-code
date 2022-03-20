@@ -59,8 +59,36 @@ class ProfileHeaderView: UIView {
         return statusB
     }()
     
+    private lazy var spentTimeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Время, проведенное на странице:"
+        label.font = .systemFont(ofSize: 14)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    @objc func clock(timer: Timer){
+        var enteringTime = Date()
+        if (timer.userInfo as? Date != nil){
+            enteringTime = timer.userInfo as! Date
+        } else {print("Ошибка при получении времени входа")}
+        let passedTime: TimeInterval = Date().timeIntervalSince(enteringTime)
+        let df = DateComponentsFormatter()
+        df.unitsStyle = .abbreviated
+        df.allowedUnits = [.hour, .minute, .second]
+        let timeString: String? = df.string(from: passedTime)
+        if (timeString != nil) {
+            spentTimeLabel.text = "Время, проведенное на странице: " + timeString!
+        } else {
+            print("Неверные данные времени, проведенного на странице")
+            
+        }
+    }
+    
+    var timer = Timer(timeInterval: 1.0, target: self, selector: #selector(clock), userInfo: Date(), repeats: true)
+    
     private func setupSubviews() {
-        self.addSubviews(fullNameLabel,avatarImageView,statusLabel,statusButton)
+        self.addSubviews(fullNameLabel,avatarImageView,statusLabel,statusButton,spentTimeLabel)
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
             avatarImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
@@ -76,15 +104,26 @@ class ProfileHeaderView: UIView {
             statusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
             statusButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
             statusButton.heightAnchor.constraint(equalToConstant: 50),
-            statusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
             
             statusLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
             statusLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
             statusLabel.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -34),
-            statusLabel.heightAnchor.constraint(equalTo: fullNameLabel.heightAnchor)
+            statusLabel.heightAnchor.constraint(equalTo: fullNameLabel.heightAnchor),
+            
+            spentTimeLabel.topAnchor.constraint(equalTo: statusButton.bottomAnchor, constant: 16),
+            spentTimeLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
+            spentTimeLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
+            spentTimeLabel.heightAnchor.constraint(equalToConstant: 30),
+            spentTimeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
         ])
+        
+        timer = Timer(timeInterval: 1.0, target: self, selector: #selector(clock), userInfo: Date(), repeats: true)
+        print("kjdsfl;ksdjflksj\n\n\nn\n\n\njhgkjhgk",timer)
+        RunLoop.current.add(timer, forMode: .common)
+        
     }
 }
+
 
 
 class ProfileTableHeaderView: UITableViewHeaderFooterView {
@@ -96,7 +135,7 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var view = ProfileHeaderView()
+    let view = ProfileHeaderView()
     
     private func setupSubviews() {
         
