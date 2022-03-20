@@ -35,6 +35,18 @@ class ProfileViewController: UIViewController {
             mainTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    private var timerOutlet: Timer?
+    
+    
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if (timerOutlet != nil) {
+            timerOutlet!.invalidate()
+        }
+        
+    }
 }
 
 extension ProfileViewController: UITableViewDataSource {
@@ -61,11 +73,13 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: ProfileTableHeaderView.self)) as! ProfileTableHeaderView
         if section != 0 {return nil}
+        timerOutlet = header.view.timer
+        
         return header
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 218
+        return 280
     }
 }
 
