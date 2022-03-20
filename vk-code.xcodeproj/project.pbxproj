@@ -21,12 +21,14 @@
 		785D89EE27380CA100A6366D /* ProfilePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D89ED27380CA100A6366D /* ProfilePost.swift */; };
 		78900BFE275E5BB400F07DBC /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78900BFD275E5BB400F07DBC /* Checker.swift */; };
 		789A0F3B278745A8000FDDE9 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A0F3A278745A8000FDDE9 /* PhotosViewController.swift */; };
+		789A0F3D278C7AD3000FDDE9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A0F3C278C7AD3000FDDE9 /* CustomButton.swift */; };
 		78A4CC062769047100625387 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 78A4CC052769047100625387 /* iOSIntPackage */; };
 		78A4CC08276A06A900625387 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A4CC07276A06A900625387 /* PhotosTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		783A574027A184BB007512B8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		783A574627AACC3A007512B8 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		785D89C9273531DA00A6366D /* vk-code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "vk-code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		785D89CC273531DA00A6366D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		785D89CE273531DA00A6366D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 		785D89ED27380CA100A6366D /* ProfilePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePost.swift; sourceTree = "<group>"; };
 		78900BFD275E5BB400F07DBC /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		789A0F3A278745A8000FDDE9 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		789A0F3C278C7AD3000FDDE9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		78A4CC07276A06A900625387 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +91,7 @@
 				785D89E52735417200A6366D /* Profile */,
 				785D89E42735416200A6366D /* Feed */,
 				783A573F27A18445007512B8 /* Network */,
+
 			);
 			path = "vk-code";
 			sourceTree = "<group>";
@@ -124,6 +128,7 @@
 				785D89D7273531DD00A6366D /* LaunchScreen.storyboard */,
 				785D89D5273531DD00A6366D /* Assets.xcassets */,
 				785D89DA273531DD00A6366D /* Info.plist */,
+				789A0F3C278C7AD3000FDDE9 /* CustomButton.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789A0F3D278C7AD3000FDDE9 /* CustomButton.swift in Sources */,
 				785D89E82737FC6000A6366D /* ProfileViewController.swift in Sources */,
 				78900BFE275E5BB400F07DBC /* Checker.swift in Sources */,
 				785D89EA27380C4900A6366D /* ProfileTableViewCell.swift in Sources */,
@@ -213,6 +219,7 @@
 				785D89EC27380C8800A6366D /* ProfileTableHeaderView.swift in Sources */,
 				785D89EE27380CA100A6366D /* ProfilePost.swift in Sources */,
 				785D89CD273531DA00A6366D /* AppDelegate.swift in Sources */,
+				783A574727AACC3A007512B8 /* InfoViewController.swift in Sources */,
 				789A0F3B278745A8000FDDE9 /* PhotosViewController.swift in Sources */,
 				785D89E32735415700A6366D /* LoginViewController.swift in Sources */,
 				783A574127A184BB007512B8 /* NetworkService.swift in Sources */,
